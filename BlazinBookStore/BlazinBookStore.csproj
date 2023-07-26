@@ -17,4 +17,14 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.7" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Shared\" />
+    <Folder Include="wwwroot\Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Styles\" />
+  </ItemGroup>
 </Project>
