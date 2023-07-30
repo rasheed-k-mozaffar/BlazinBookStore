@@ -1,0 +1,38 @@
+﻿.overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0 ,0 , 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box{
+    width: 500px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 3px 7px rgba(0 ,0 ,0 , 0.3);
+    padding: 2.5rem;
+}
+
+    .modal-box .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .modal-box .modal-header .close-button{
+        cursor: pointer;
+        padding: 1rem;
+        border-radius: 50%;
+        transition: .25s ease;
+    }
+
+    .modal-box .modal-header .close-button:hover{
+        background-color: lightgray;
+    }
+
+    

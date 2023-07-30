@@ -1,0 +1,48 @@
+﻿@page "/"
+@inject IBooksService BooksService
+
+<h3 class="text-2xl font-bold">Available Books:</h3>
+<DataListView TItemType="Book" Items="_books" ColumnCount="4">
+    <ItemTemplate>
+        <BookCard Book="@context" OnAddToCartClicked="AddToCart"/>
+    </ItemTemplate>
+</DataListView>
+
+<h3 class="text-2xl mt-5">Added to Cart</h3>
+<ul>
+    @foreach (var book in _cartBooks)
+    {
+        <li>@book.Title by @book.AuthorName</li>
+    }
+</ul>
+
+<ModalPopup Title="Hello There!" IsOpen="_isWelcomeDialogOpen" OnCloseClicked="@(() => _isWelcomeDialogOpen = false)">
+    <ChildContent>
+        <p>Welcome to <b>Blazin Book Store</b>! <br />
+        The only place where you can get your favorite technical books at the best cost available on the market!
+        , Make sure to frequently check your email as we'll be sending you emails to notify you
+        about the hottest offers going around at that time</p>
+    </ChildContent>
+
+    <FooterContent>
+        <button class="btn btn-success" @onclick="@(() => _isWelcomeDialogOpen = false)">Cool!</button>
+    </FooterContent>
+</ModalPopup>
+
+
+@code{
+    private bool _isWelcomeDialogOpen = true;
+    private List<Book> _books = new();
+    private List<Book> _cartBooks = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _books = await BooksService.GetAllBooksAsync();
+    }
+
+    private void AddToCart(Book selectedBook)
+    {
+        _cartBooks.Add(selectedBook);
+    }
+}
+
