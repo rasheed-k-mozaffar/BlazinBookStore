@@ -20,11 +20,15 @@
   <ItemGroup>
     <None Remove="Shared\" />
     <None Remove="Models\" />
+    <None Remove="Services\" />
+    <None Remove="Pages\UserPages\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Shared\" />
     <Folder Include="wwwroot\Styles\" />
     <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="Pages\UserPages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Styles\" />
