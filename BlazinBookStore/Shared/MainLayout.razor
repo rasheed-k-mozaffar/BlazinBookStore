@@ -1,6 +1,11 @@
 ﻿@inherits LayoutComponentBase
 
 <main>
-    @Body
+    <CascadingValue Value="@_backgroundStyle">
+        @Body
+    </CascadingValue>
 </main>
 
+@code{
+    private string _backgroundStyle = "background-color: #f2f2f2";
+}
